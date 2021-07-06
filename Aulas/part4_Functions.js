@@ -628,7 +628,18 @@ function Dog(years,breed) {
 /*O setInterval serve para executar uma função ou instrução várias vezes em um determinado intervalo de tempo.*/
         setInterval(function(){
         this.age +=1;
-        console.log(that);
+        console.log(this);
+    },5000/*valor em milesimos*/)
+    // esse vai dar erro por que tem a palavra function
+}
+function Dog(years,breed) {
+
+    this.age = years;
+    this.type = breed;
+/*O setInterval serve para executar uma função ou instrução várias vezes em um determinado intervalo de tempo.*/
+        setInterval(()=>{
+        this.age +=1;
+        console.log(this);
     },5000/*valor em milesimos*/)
     // body...
 }
