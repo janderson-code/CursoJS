@@ -22,7 +22,8 @@ var test = function(name){
     return false;
   }
   
- return test(name);
+  return test(name);
+  }
 }
 //gives answer true
 console.log(mortalTest("man"));
