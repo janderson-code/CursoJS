@@ -59,7 +59,7 @@ do {
 	console.log("Looping");
 	shoudRunOnlyOnce = false;
 
-}while(shoudRunOnlyOnce
+}while(shoudRunOnlyOnce);
 
 
 	// FOR IN LOOP
@@ -91,8 +91,108 @@ do {
 	//Troca o valor Sally por zé do objeto users
 	for (let prop in users){
 		if(users[prop] === "Sally"){
-			users[prop] ==="Zé"
+			users[prop] ==="Zé";
 			}
 		console.log(users[prop])
+	}	
+
+//------------------------------------------------
+	const drinks = ["coffe","sprite","tea","coke","pepsi"];
+
+ // Imprime os index 0 a 4 da variavel array drinks
+	for (let d in drinks){
+		console.log(d);
 	}
-	
+
+	//Imprime os valores do variavel array drinks
+
+	for (let d in drinks){
+		console.log(drinks[d]);
+	}
+
+	//Imprime os valores do variavel array drinks forma 1
+	drinks.forEach(function(d){
+		console.log(d);
+	});
+
+//Imprime os valores do variavel array drinks forma 2 
+	drinks.forEach((d)=>{
+		console.log(d);
+	});
+
+// ao encontrar o valor janderso ele para o loop
+	for(let d in drinks){
+		if(drinks[d] === "Janderson"){
+			break;
+		}
+		console.log(drinks[d]);
+	}
+
+	// imprimindo o que ante e tem depois diferente de Janderson
+
+	for(let d in drinks){
+		if(drinks[d] === "Janderson"){
+			continue;
+		}
+		console.log(drinks[d]);
+	}
+
+//------------------------------------------------
+
+const drinks = ["coffe","sprite","tea","coke","pepsi"];
+
+//Imprime os valores não o index
+for(const d of drinks){
+	console.log(d);
+}
+// Imprimi os valores até encontrar o valor tea9 printa coffe e sprite)
+for(const d of drinks){
+	if(d ==="tea"){
+		break;
+	}
+	console.log(d);
+}
+//---------------------------------
+
+const myString = "HELLO";
+//Imprime cada caractere da string 
+for(const letra of myString){
+		console.log(letra);
+}
+
+//---------------
+//Imprime cada valor do array + 10
+ const originalArray=[10,15,20,25,30];
+
+ for (let num of originalArray) {
+ 			num += 10;
+ 			console.log(num);
+ }
+
+ //versão com function
+
+ function Incremento(arr,numToInc) {
+ 		for (let num of arr) {
+ 			num += numToInc;
+ 			console.log(num);
+	  }
+ }
+
+ Incremento(originalArray,10);
+ //-------------------------------
+
+const originalArray2 = ["JB","JB","Yuna","Yuna"];
+
+const UniqueSetName = new Set(originalArray2);
+
+//Imprime todos valoresd do array
+for (const n of originalArray2){
+		console.log(n);
+}
+
+
+//Imprime e descarta valores duplicados de um array
+for (const n of uniqueSetName){
+		console.log(n);
+}
+
