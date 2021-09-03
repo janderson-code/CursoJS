@@ -59,4 +59,40 @@ do {
 	console.log("Looping");
 	shoudRunOnlyOnce = false;
 
-}while(shoudRunOnlyOnce);
+}while(shoudRunOnlyOnce
+
+
+	// FOR IN LOOP
+
+	const users = {
+		1:"Sally",
+		2:"Billy",
+		3:"Ashley",
+		4:"Timmy"
+	};
+
+//Imprime as keys 1 a 5 do objeto users
+	for(let prop in users){
+		console.log(prop);
+	}
+
+//Imprime valores do objeto users
+	for (let prop in users){
+		console.log(users[prop]);
+	}
+
+	//Substitui os 5 valores por Janderson do objeto users
+	for (let prop in users){
+		let newUser = users[prop];
+		newUser = "Janderson";
+		console.log(newUser);
+	}
+
+	//Troca o valor Sally por zé do objeto users
+	for (let prop in users){
+		if(users[prop] === "Sally"){
+			users[prop] ==="Zé"
+			}
+		console.log(users[prop])
+	}
+	
