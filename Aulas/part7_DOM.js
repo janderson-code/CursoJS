@@ -40,7 +40,7 @@ for(const prop of allSpans){
 	pro.innerHTML="Somebody";
 }
 
-const ID - document.getElementById("id");
+const ID = document.getElementById("id");
 
 ID.innerHTML = "er";
 
@@ -317,4 +317,13 @@ for(prop of newUl.childNodes){
 	if(prop.innerText==="chocolate"){
 		newUl.removeChild(prop);
 	}
+}
+/*forma 3 function*/
+
+function removeIceCream(t) {
+	for(prop of newUl.childNodes){
+		if(prop.innerText==="t"){
+				newUl.removeChild(prop);
+		}
+	 }
 }
