@@ -145,7 +145,7 @@ const drinks = ["coffe","sprite","tea","coke","pepsi"];
 for(const d of drinks){
 	console.log(d);
 }
-// Imprimi os valores até encontrar o valor tea9 printa coffe e sprite)
+// Imprimi os valores até encontrar o valor tea printa coffe e sprite)
 for(const d of drinks){
 	if(d ==="tea"){
 		break;
