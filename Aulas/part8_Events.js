@@ -14,5 +14,36 @@
 
 */
 
+//---------------------------------------
+//Aula 01 Lecture: Introduction to Events
+//---------------------------------------
 
+//Evento que gerar um pop up ao clicar numa pagina
+
+document.addEventListener("click", function(){
+	console.log("Clicado");
+});
+
+//Evento que gerar um alert dialog ao clicar numa pagina usando ID
+const clickDiv = document.getElementById("clicky");
+
+clickDiv.addEventListener("click",function(){
+	alert("clicado!");
+});
+
+//Versão anterior Arrow function
+clickDiv.addEventListener("click",()=> alert("clicked"));
+
+//verificar Devtools  console
+clickDiv.addEventListener("click",function(event){
+	alert(event);
+});
+
+//verificar Devtools  console tipo do evento
+clickDiv.addEventListener("click",function(event){
+	alert(event.type);
+});
+
+
+// 9:00
 
