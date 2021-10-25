@@ -123,8 +123,69 @@ function logEvent4(e){
 	clickableButton.innerText = "Plz no click";	
     //mostra no console devtools o typo click
 	console.log(e.type);
-	// remove o evento do tipo 
+	// remove o evento do tipo click do button
 	clickableButton.removeEventListener("click",logEvent4);
-	//Não mostra no console o event click
+	//Não mostra no console o event click apos clicar no button
 	console.log(e.type);
+}
+
+function logEvent5(e){
+	//pritando todos os evento no console devtools
+	console.log(e);
+	//altera o nome do button para o timeStamp
+	clickableButton.innerText = e.timeStamp ;	
+    //mostra no console devtools o typo click
+	console.log(e.type);
+	// remove o evento do tipo click do button
+	clickableButton.removeEventListener("click",logEvent4);
+	//Não mostra no console o event click apos clicar no button
+	console.log(e.type);
+}
+
+
+//25:00
+
+const back = document.getElementById("background");
+
+back.addEventListener("mousedown",switchBackground);
+back.addEventListener("focusout",switchBackground);
+
+function switchBackground(e){
+	// if (e.wich === 1) {
+	// 	back.classList.toggle("background-color");
+	// }
+
+
+	// Adiciona a classe background-color 
+	// back.classList.add("background-color");
+
+	if (e.type ==="mousedown") {
+		//add classe
+		back.classList.add("background-color");
+	}
+	else if (e.type === "focusout") {
+		// remove a classe
+		back.classList.toggle("background-color");
+	}
+}
+
+document.addEventListener("click",switchBackground2)
+
+function switchBackground2(e){
+	console.log(e);
+	// ao clicar na tag é true clicar fora é false
+	const hasBeenClicked = back.contains(e.target);
+	console.log(hasBeenClicked);
+}
+
+function switchBackground4(e){
+	const hasBeenClicked = back.contains(e.target);
+	if (hasBeenClicked) {
+		// ao clicar na tag add class
+		back.classList.add("background-color");
+	}
+	else{
+		// clicando fora remove class
+		back.classList.toggle("background-color");
+	}
 }
