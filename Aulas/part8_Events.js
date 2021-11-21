@@ -147,6 +147,7 @@ function logEvent5(e){
 
 const back = document.getElementById("background");
 
+
 back.addEventListener("mousedown",switchBackground);
 back.addEventListener("focusout",switchBackground);
 
@@ -169,7 +170,8 @@ function switchBackground(e){
 	}
 }
 
-document.addEventListener("click",switchBackground2)
+document.addEventListener("click",switchBackground2);
+
 
 function switchBackground2(e){
 	console.log(e);
@@ -188,4 +190,19 @@ function switchBackground4(e){
 		// clicando fora remove class
 		back.classList.toggle("background-color");
 	}
+}
+
+const listItemsUl = document.querySelectorAll("ul");
+
+listItemsUl.addEventListener("click",addGreenBackground);
+
+
+function addGreenBackground(e){
+	console.log(e.target);
+
+	/*Para o evento fora do alvo no caso o background*/
+	e.stopPropagation();
+	const targetLi = e.target;
+	targetLi.classList.add("green");
+
 }
