@@ -30,7 +30,7 @@ const stringConversion = parseInt(stringFive);
 console.log(numberFive + stringConversion);// 10
 
 if (numberFive === stringFive) {
-	console.log("Ola"); // imprime olá
+	console.log("Ola"); // não imprime olá
 }
 
 
