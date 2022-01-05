@@ -19,7 +19,7 @@
 //---------------------------------------
 
 //Evento que gerar um pop up ao clicar numa pagina
-//no caso o addEvent precisa de dois param um com evento e o outro com a function
+//no caso o addEvent precisa de dois parametros um com evento e o outro com a function
 
 
 document.addEventListener("click", function(){
@@ -205,4 +205,30 @@ function addGreenBackground(e){
 	const targetLi = e.target;
 	targetLi.classList.add("green");
 
+}
+
+const allLI = back.querySelectorAll("li");
+
+function addGreenBackground(e){
+	e.stopPropagation();
+
+	for(const prop of allLI){
+		const targetLi = e.target;
+		targetLi.classList.remove("green")
+	}
+
+	const targetLi = e.target;
+	targetLi.classList.add("green");
+}
+
+
+function addGreenBackground(e){
+	e.stopPropagation();
+
+	const targetLi = e.target;
+	const green = document.querySelector("green");
+	if (green) {
+		gree.classList.remove("green");
+	}
+	targetLi.classList.add("green");
 }
