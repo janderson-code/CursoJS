@@ -226,9 +226,155 @@ function addGreenBackground(e){
 	e.stopPropagation();
 
 	const targetLi = e.target;
-	const green = document.querySelector("green");
+	const green = document.querySelector(".green");
 	if (green) {
-		gree.classList.remove("green");
+		green.classList.remove("green");
 	}
 	targetLi.classList.add("green");
 }
+
+function addGreenBackground(e){
+
+	e.stopPropagation();
+	const targetLi = e.target;
+	if (e.target.nodeName == "Ul") {
+		return;
+	}
+	const green = document.querySelector(".green");
+	if (green){
+		green.classList.remove("green");
+	}
+	targetLi.classList.add("green");
+}
+
+const back2 = document.getElementById("back2");
+const allLIs = back2.querySelectorAll("li");
+
+for(var prop of allLIs){
+  prop.addEventListener("click",function(e){
+    console.log(this);
+  });
+}
+
+
+
+//---------------------------------------
+//Aula 02 Lecture: Preventing Default
+//---------------------------------------
+
+const div2 = document.getElementById("div2");
+const link = div2.querySelector("a");
+
+
+link.addEventListener("click",function(event){
+	event.preventDefault();
+	alert("Not today");
+});
+
+
+link.addEventListener("contextmenu",function(event){
+	event.preventDefault();
+	alert("Not today");
+});
+
+const myForm = document.getElementById("myForm");
+myForm.addEventListener("submit",addToList);
+
+function addToList(e){
+	e.preventDefault();
+	const myInput = document.getElementById("myInput").value;
+	//console.log(myInput);
+	const newLi = document.createElement("li");
+	newLi.innerText = myInput;
+	listItemsUl.appendChild(newLi);
+	myForm.reset();
+
+}
+
+//---------------------------------------
+//Aula 03 Lecture: Key Events
+//---------------------------------------
+
+//Ao digitar apresente o codigo em numero da tecla quando pressionada
+document.addEventListener("keydown",function(e){
+	console.log(e.keyCode);
+	if (e.keyCode === 32) {
+		e.preventDefault();
+
+	}
+});
+
+//Ao digitar apresente o codigo em numero da tecla ao soltar a tecla
+document.addEventListener("keyup",function(e){
+	console.log(e.keyCode);
+});
+
+const div3 = document.getElementById("div3");
+const para = div3.querySelector("p");
+const textarea = div3.querySelector("textarea");
+const texto = "Texto";
+let timer;
+let count = 0;
+
+//add texto ao manter tecla pressionada
+textarea.addEventListener("keydown",addText);
+//texto string vazia ao soltar a teclar
+textarea.addEventListener("keydup",removeText);
+
+function addText(e){
+
+para.innerText = texto;
+}
+function removeText(e) {
+	para.innerText = "";
+}
+
+function removeText2(e) {
+	count++;
+	console.log(count);
+	clearTimeout(timer);
+	//1 minuto aṕos digitar o texto é trocado/removido
+	timer = setTimeout(()=>{
+		para.innerText = "";
+	},1000);
+}
+
+//---------------------------------------
+//Aula 04 Lecture: Loads Events
+//---------------------------------------
+
+//Dentro de uma tag <script> no HTML no fim do doc
+
+function addToLog() {
+
+	const mylog = document.getElementById("log");
+	mylog.innerHTML += "<h1> Hello ";
+}
+
+//Dentro de uma tag <script> no HTML no inicio do doc
+	
+document.addEventListener("DOMContentLoaded",addTolog);
+
+
+function addToLog() {
+
+	const mylog = document.getElementById("log");
+	mylog.innerHTML += "<h1> Hello ";
+
+}
+
+//Serve como o tempo de load da pagina
+for (var i = 0; i<1000000;i++) {}
+
+
+//------------------------------------------
+
+window.addEventListener("load",checkImageSize);
+
+function checkImageSize(){
+
+const myImg = document.getElementById("myImg");
+console.log("height:" + myImg.offsetHeight + " " 
+ + "width: " + myImg.offsetWidth);
+}
+	
