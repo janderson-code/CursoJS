@@ -93,3 +93,17 @@ console.log(myPizzaArticle);
 const pizzaDiv = document.getElementById("pizzaDiv");
 
 pizzaDiv.innerHTML = myPizzaArticle;
+
+
+
+function templateParser(arrayString,exp1,exp2){
+
+console.log(`"${arrayString}","${exp1}","${exp2}"`);
+
+}
+
+const person = "janderson";
+const personAge = 21;
+
+const myTemplateLiteral = templateParser`I am ${person}, aged:${personAge}`;
+// "I am ,,aged:,","janderson","21" no console
