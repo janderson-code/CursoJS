@@ -58,6 +58,33 @@ console.log(chocolate);
 
 
 const[result] = foodFilter(["chicken","fish","tofu"],"chicken");
+const[result2] = foodFilter(["pizza","fish","tofu"],"pizza");
 console.log(result);
 
 
+//Can ignore some values
+
+const anotherArr = [10,20,50,100,1000,30];
+const [numA,numB, ,numC, ,NumD] = anotherArr;
+console.log(`First :${numA},second:${numB},third:${numC},fourth:${NumD}`)
+
+//Can use rest pattern
+
+function sayHi(first,...rest){
+
+	console.log(`Hi ${first}`);
+	console.log(rest);
+}
+
+sayHi("Chris",30,"Fuck");
+
+const yetAnotherArr = ["dogs","cats","birds","snakes","lyon"];
+const [dog,cat,...otherAnimals] = yetAnotherArr;
+
+console.log(dog);
+console.log(cat);
+console.log(otherAnimals);
+
+console.log(otherAnimals.filter((t)=>{
+	return t === "snakes";
+}));
