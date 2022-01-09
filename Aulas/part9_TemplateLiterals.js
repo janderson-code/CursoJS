@@ -60,4 +60,36 @@ const first = "Jane";
 const last  = "Smith";
 const age = 52;
 
+const fullname = `${first} ${last}, age: ${age}`
+
 console.log(`Hello ${first} ${last}. You are ${age} Today`);
+
+const dateNow = new Date();
+
+console.log(`Today is :${dateNow.toLocaleString(}`);
+
+console.log(`Result is: ${50*100}`);
+
+const myarray = [1,2,3,4,5];
+
+console.log(`${myarray.map((num)=> `${num+5}`)}`);
+console.log(`${myarray.map((num)=> `Your result is: ${num+5}`)}`);
+
+const pizzaToppings = ["cheese","mushrooms","sauce","pepperoni"];
+
+const myPizzaArticle= (
+
+	`<article>
+		<h1>pizza Ingredients</h1>
+		<ul>
+		  ${pizzaToppings.map((ingredient)=>`<li>${ingredient}</li>`).join("")}
+		</ul>
+	</article>`
+
+);
+
+console.log(myPizzaArticle);
+
+const pizzaDiv = document.getElementById("pizzaDiv");
+
+pizzaDiv.innerHTML = myPizzaArticle;
