@@ -1,3 +1,5 @@
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
 //Destructuring
 
 /*- "The Destructuring assignment syntax is a 
@@ -7,6 +9,7 @@
   - Desctructuring syntax can be used on left-hand
     side of assignments
 
+ 
 
  */
 
@@ -26,6 +29,7 @@ let name1,name2,name3,name4;
 console.log(name1,name2,name3,name4);
 
 
+//Swap two variables
  let aa = 100;
  let bb = 250;
  let cc = 500;
@@ -35,5 +39,25 @@ console.log(name1,name2,name3,name4);
  [bb,cc] = [cc,bb];
 
  console.log(aa,bb,cc);
+
+
+// use with functions
+
+function returnArray(){
+	return ["donuts","chocolate","candy","gummy bears"];
+
+}
+
+function foodFilter(arr,term){
+	return arr.filter((t)=> t === term);
+
+}
+
+const [donuts,chocolate,candy,gummybears]= returnArray();
+console.log(chocolate);
+
+
+const[result] = foodFilter(["chicken","fish","tofu"],"chicken");
+console.log(result);
 
 
