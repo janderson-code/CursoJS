@@ -24,3 +24,16 @@ let name1,name2,name3,name4;
 [name1,name2,name3,name4="I'm a Default"] = mySecondArray;
 
 console.log(name1,name2,name3,name4);
+
+
+ let aa = 100;
+ let bb = 250;
+ let cc = 500;
+
+ console.log(aa,bb,cc);
+
+ [bb,cc] = [cc,bb];
+
+ console.log(aa,bb,cc);
+
+
