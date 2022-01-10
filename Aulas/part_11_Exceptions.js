@@ -29,36 +29,64 @@
 
 //throw "new Error!!!";
 
-function checkIfNum(n){
-	if (isNaN(n)) {
-		throw "This is a not a number";
-	}else{
-		console.log(n);
-	}
-}
+// function checkIfNum(n){
+// 	if (isNaN(n)) {
+// 		throw "This is a not a number";
+// 	}else{
+// 		console.log(n);
+// 	}
+// }
 
-checkIfNum(33);
+// checkIfNum(33);
 
-const myObjException = {
-	toString: function(){
-		return "I am an Object Exception";
-	}
-}
+// const myObjException = {
+// 	toString: function(){
+// 		return "I am an Object Exception";
+// 	}
+// }
 
-throw myObjException;
+// throw myObjException;
 
 
-function MyException(message){
-	this.message = message;
-	this.name = "My Exception";
-	this.toString = function() {
-		return this.name + ":" + this.message;
-	}
-}
+// function MyException(message){
+// 	this.message = message;
+// 	this.name = "My Exception";
+// 	this.toString = function() {
+// 		return this.name + ":" + this.message;
+// 	}
+// }
 
-throw new MyException("Field Invalid");
+// throw new MyException("Field Invalid");
 
 //---------------------------------------
 //Aula 02  Lecture: Try, Catch, Finally
 //---------------------------------------
 
+let myNum = "Jane";
+const myErrorLog = [];
+
+function checkIfNum(num){
+
+	if (isNaN(num)) {
+		throw 'not a number';
+	}else{
+		console.log("Yes, this is a number");
+	}
+}
+
+function errorHandler(e){
+
+	myErrorLog.push(e);
+
+}
+
+
+try{
+	checkIfNum(myNum);
+}
+catch(catchID){
+	console.log("Pegou o erro");
+	errorHandler(catchID);
+}
+console.log(myErrorLog.length);
+console.log("I want to live");
