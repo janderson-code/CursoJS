@@ -39,3 +39,13 @@ const myObjException = {
 throw myObjException;
 
 
+function MyException(message){
+	this.message = message;
+	this.name = "My Exception";
+	this.toString = function() {
+		return this.name + ":" + this.message;
+	}
+}
+
+throw new MyException("Field Invalid");
+
