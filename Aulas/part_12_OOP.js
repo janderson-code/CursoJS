@@ -19,7 +19,9 @@
  - Javascript is dynamic and does not provide a tradional
    class implementation per se.
 
- - JavaScript inheritance is prototype based  
+ - JavaScript inheritance is prototype based 
+ - Each object has a private property called the prototype
+ - The prototype can have a prototype of its own 
 
 */
 
@@ -35,3 +37,4 @@ function Ship(){
 const myShip = new Ship();
 
 myShip.whatAmI();
+
