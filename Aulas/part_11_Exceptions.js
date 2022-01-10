@@ -15,6 +15,15 @@
  e.g.: throw expression
  - Can throw any expression
 
+ -A declaração throw lança 
+  uma exceção definida pelo usuário. A execução da função 
+  atual vai parar (as instruções após o throw 
+  não serão executadas), 
+  e o controle será passado para o primeiro bloco
+  catch na pilha de chamadas. 
+  Se nenhum bloco catch existe entre as funções 
+  "chamadoras", o programa vai terminar.
+
 
 */
 
