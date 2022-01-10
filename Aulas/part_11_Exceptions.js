@@ -49,3 +49,7 @@ function MyException(message){
 
 throw new MyException("Field Invalid");
 
+//---------------------------------------
+//Aula 02  Lecture: Try, Catch, Finally
+//---------------------------------------
+
