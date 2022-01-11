@@ -128,4 +128,54 @@ console.log(name2.hasOwnProperty("name"));//true
 //Aula 02 Lecture: Object Constructors
 //---------------------------------------
 
+function Animal(name,age,breed){
+	const obj = {};
+	obj.name = name;
+	obj.age = age;
+	obj.breed = breed;
+	// this.sayBreed = function(){
+	// 	console.log(`My breed is : ${this.breed}`);
+	// }
 
+	// return obj
+	
+}
+
+//Verificar console estara uma camada de prototype 
+// e qualquer objeto criado pelo prototipo animal
+// vai herdar função sayBreed
+Animal.prototype.sayBreed = function () {
+	console.log(`My breed is : ${this.breed}`);
+}
+
+
+const dog1 = new Animal("Spike",3,"Labrador");
+/*dog1 inherits from prototype Animal,which inherits 
+/from prototype Objects*/
+
+const dog2 = new Animal("Spot",2,"Golden Retriever");
+console.log(dog1.name);
+console.log(Animal.hasOwnProperty("sayBreed"));//false
+console.log(Animal.prototype.hasOwnProperty("sayBreed"));//true
+
+
+
+
+// Criando um prototipo direto do Object
+
+Object.prototype.sayHello = function(){
+	console.log("Hello");
+}
+
+//qualquer objeto criado vai herdar a função acima
+
+const abc = {};
+abc.sayHello();
+
+
+
+
+
+//---------------------------------------
+//Aula 03 Lecture: Object Inheritance
+//---------------------------------------
