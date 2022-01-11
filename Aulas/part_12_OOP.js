@@ -173,9 +173,75 @@ const abc = {};
 abc.sayHello();
 
 
-
-
-
 //---------------------------------------
 //Aula 03 Lecture: Object Inheritance
 //---------------------------------------
+
+//Objeto Protótipo Primário(Pai)
+function Animal2(name,age){
+	this.name = name;
+	this.age = age;
+	
+}
+
+Animal2.prototype.makeNoise = function(){
+	console.log(`generic animal noise`);
+}
+
+
+
+
+function Dog(name, age,breed){
+	Animal2.call(this,name,age);
+	this.breed = breed;
+}
+
+//Dessa forma conseguimos pegar o método makeNoise
+Dog.prototype = Object.create(Animal2.prototype);
+Dog.prototype.constructor = Dog;
+
+
+Dog.prototype.makeNoise = function(){
+	console.log("bark bark woof");
+}
+
+const barky = new Dog("Barky",1,"Chihuahua");
+
+barky.makeNoise();
+
+
+
+
+function Cat(name,age,coloration){
+	Animal2.call(this,name,age);
+	this.coloration = coloration;
+}
+
+Cat.prototype = Object.create(Animal2.prototype);
+Cat.prototype.constructor = Cat;
+Cat.prototype.scrathPost = function(){
+	console.log("Cat hat scratched  the post");
+
+}
+
+const kitty = new Cat("kitty",1,"tabby");
+kitty.makeNoise();
+kitty.scrathPost();
+
+
+
+
+function Kitten(name,age,coloration,litter){
+	Cat.call(this,name,age,coloration);
+	this.litter = litter;
+}
+
+Kitten.prototype = Object.create(Cat.prototype);
+Kitten.prototype.constructor = Kitten;
+
+const tinyKitty = new Kitten("Spot",0,"Orange",1);
+
+console.log(tinyKitty.coloration);
+console.log(tinyKitty instanceof Kitten);//true
+console.log(tinyKitty instanceof Cat);//true
+console.log(tinyKitty instanceof Animal2);//true
