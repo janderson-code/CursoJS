@@ -3,6 +3,14 @@
 //Aula 01 Lecture: Throwing_Exceptions
 //---------------------------------------
 
+/*
+
+Links
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/throw
+
+
+*/
 
 // Exception Handling
 

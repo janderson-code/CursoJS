@@ -2,6 +2,16 @@
 //Aula 01 Lecture: Introduction to OOP
 //---------------------------------------
 
+/* Links:
+
+http://webacademico.canoas.ifrs.edu.br/~rcpinto/IFRS/php/JS-4-OO/js-oo.html
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects
+
+
+
+
+*/
 
 /*
  - OOP : basic idea is that you use objects to represent 
@@ -27,6 +37,9 @@
  - The prototype property's value in an object
  - Think of it as a bucket to store properties and methods
  - Prototype as a template and can have prototype properties of its own
+ - "The prototype property is where inherited members are defined"
+
+
 
 */
 
@@ -75,16 +88,44 @@ console.log(myString.valueOf());
 // myString > String > Object
 
 
-
-var curso = {
-	sigla:"KK",
-	curso:"Programação"
+const name1 ={
+	name:"janderson",
+	age:20,
+	sayName:function(){
+		console.log(`My name is ${this.name}`);
+	}
 }
-var obj = Object.create(curso);
 
-obj.sigla = "ggg"
-curso.sigla = "jjj";
-obj.versao ="prime";
+const name2 = Object.create(name1);
+name2.name = "Jane Doe";
 
-console.log(obj.sigla);
-console.log(obj.versao); // Undefined
+const name3 = Object.create(name2);
+name3.sayName();
+
+console.log(name2.hasOwnProperty("age"));//false
+//alterado na linha 100 então fica true
+console.log(name2.hasOwnProperty("name"));//true
+
+
+
+// //Apostila k19
+// var curso = {
+// 	sigla:"KK",
+// 	curso:"Programação"
+// }
+// var obj = Object.create(curso);
+
+// obj.sigla = "ggg"
+// curso.sigla = "jjj";
+// obj.versao ="prime";
+
+// console.log(obj.sigla);
+// console.log(obj.versao); // Undefined
+// //Apostila k19
+
+
+//---------------------------------------
+//Aula 02 Lecture: Object Constructors
+//---------------------------------------
+
+
