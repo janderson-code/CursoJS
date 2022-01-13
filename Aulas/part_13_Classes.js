@@ -66,4 +66,4 @@ Person2.prototype.greeting = function(){
 	console.log("Now I say something else");
 }
 
-Jane.greeting(); //Imprime Now I say something else"
+Jane.greeting();//Imprime Now I say something else"
