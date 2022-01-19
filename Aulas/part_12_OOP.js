@@ -77,6 +77,7 @@ console.log(myString.charAt(0)); // print h
 //NO
 //Does String prototype have a method called valueOf()?
 //YES
+// myString > String 
 
 console.log(myString.valueOf());
 //Does myString have a method  called valueOf()?
@@ -144,6 +145,7 @@ function Animal(name,age,breed){
 //Verificar console estara uma camada de prototype 
 // e qualquer objeto criado pelo prototipo animal
 // vai herdar função sayBreed
+
 Animal.prototype.sayBreed = function () {
 	console.log(`My breed is : ${this.breed}`);
 }
@@ -207,7 +209,7 @@ Dog.prototype.makeNoise = function(){
 
 const barky = new Dog("Barky",1,"Chihuahua");
 
-barky.makeNoise();
+barky.makeNoise(); // printa "bark bark woof"
 
 
 
@@ -227,7 +229,7 @@ Cat.prototype.scrathPost = function(){
 const kitty = new Cat("kitty",1,"tabby");
 kitty.makeNoise();
 kitty.scrathPost();
-
+console.log(kitty instanceof Cat); // true;
 
 
 
@@ -245,3 +247,16 @@ console.log(tinyKitty.coloration);
 console.log(tinyKitty instanceof Kitten);//true
 console.log(tinyKitty instanceof Cat);//true
 console.log(tinyKitty instanceof Animal2);//true
+
+
+
+// Usando SetProtype of em vez do ObjectCreate
+//Herança por Delegação
+
+var obj1 = {a:1,b:2};
+var obj2 = {};
+var obj3 = {c:30,d:40};
+Object.setPrototypeOf(obj3,obj2);// obj 2 proto de 3
+Object.setPrototypeOf(obj2,obj1);// obj 1 prto de 2
+console.log(obj3,obj2.a,obj1);
+console.log(obj3.a);

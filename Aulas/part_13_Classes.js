@@ -67,3 +67,20 @@ Person2.prototype.greeting = function(){
 }
 
 Jane.greeting();//Imprime Now I say something else"
+
+
+//---------------------------------------
+//Aula 02 Lecture: Class Inheritance
+//---------------------------------------
+
+
+class Employee extends Person2{
+
+	constructor(name,age,position){
+		super(name,age);
+		this.position = position;
+	}
+}
+
+const barb = new Employee("Barb",27,"Dev");
+console.log(barb);
