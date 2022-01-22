@@ -179,12 +179,13 @@ abc.sayHello();
 //Aula 03 Lecture: Object Inheritance
 //---------------------------------------
 
-//Objeto Protótipo Primário(Pai)
+//Função construtora de objeto Pai
 function Animal2(name,age){
 	this.name = name;
 	this.age = age;
 	
 }
+
 
 Animal2.prototype.makeNoise = function(){
 	console.log(`generic animal noise`);
@@ -260,3 +261,39 @@ Object.setPrototypeOf(obj3,obj2);// obj 2 proto de 3
 Object.setPrototypeOf(obj2,obj1);// obj 1 prto de 2
 console.log(obj3,obj2.a,obj1);
 console.log(obj3.a);
+
+//Herança por Concatenação com Construtores
+
+
+function MeuObj1(){
+	this.a = 10;
+	this.b = 20;
+}
+
+
+function MeuObj2(){
+	MeuObj.call(this);//
+	this.c = 30;
+	this.d = 40;
+}
+
+//Herança por delegação com construtores
+//Função Construtora Não é objeto e o prototipo é vazio
+function MeuObj3(){
+	this.a = 10;
+	this.b = 20;
+}
+
+
+function MeuObj4(){
+	this.c = 30;
+	this.d = 40;
+}
+
+//Definindo prototipo da função MeuObj
+//o prototipo dele será um objeto criado pelo construtor Meuobj
+MeuObj3.prototype = new MeuObj3();
+
+//O prototipo de Meuobj4 é o prototipo do Meuobj3
+Object.setPrototypeOf(MeuObj4.prototype,MeuObj3.prototype);
+
