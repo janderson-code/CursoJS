@@ -166,3 +166,33 @@ function counter(){
 }
 
 counter();
+
+//---------------
+
+function numCruncher1(num,cb){
+	const newNum = num*num;
+	cb(newNum);
+
+}
+
+function numCruncher2(num,cb){
+	const anotherNewNum = num/100;
+	cb(anotherNewNum);
+}
+
+function totalSum(a,b,cb) {
+	cb(a+b);
+}
+
+function crunchNumbers(a,b,cb1,cb2,cb3){
+
+	cb1(a,function(x){
+		cb2(b,function(y){
+			cb3(x,y,function(result){
+				console.log(result);
+			});
+		});
+	});
+}
+
+crunchNumbers(5,10,numCruncher1,numCruncher2,totalSum);
