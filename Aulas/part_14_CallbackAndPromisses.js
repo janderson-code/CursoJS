@@ -1,3 +1,18 @@
+
+ /*
+		Links:
+
+		Callback
+		https://developer.mozilla.org/pt-BR/docs/Glossary/Callback_function
+
+		Promisses
+		https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+
+ */
+
+
+
 //---------------------------------------
 //Aula 01 Lecture: Callbacks
 //---------------------------------------
@@ -116,56 +131,56 @@ function anotherLogger2(num1,num2,somethingElse){
 
 
 
-anotherLogge2(10,50,function(p){
+anotherLogger2(10,50,function(p){
 	console.log(`Squared and summed ${p}`);
 	console.log("Hey");
 });
 //----------------------------------
 
-const myDiv = document.getElementById("main");
-const myButton = myDiv.querySelector("button");
-const fakeData ={
-	text:"texto de teste"
-};
+// const myDiv = document.getElementById("main");
+// const myButton = myDiv.querySelector("button");
+// const fakeData ={
+// 	text:"texto de teste"
+// };
 
-const myPara = document.getElementById("content");
+// const myPara = document.getElementById("content");
 
-myButton.addEventListener("click",function(){
-	requestData(populateDOM);
-});
+// myButton.addEventListener("click",function(){
+// 	requestData(populateDOM);
+// });
 
-function requestData(cb){
-	let data = "loading.....";
-	cb(data);
-	setTimeout(() =>{
-		//Response from server;
-		const data = fakeData.text;
-		cb(data);
-	},2000);
-}	
+// function requestData(cb){
+// 	let data = "loading.....";
+// 	cb(data);
+// 	setTimeout(() =>{
+// 		//Response from server;
+// 		const data = fakeData.text;
+// 		cb(data);
+// 	},2000);
+// }	
 
 
-function populateDOM(data){
-	myDiv.innerHTML +=`<p>${data}</p>`;
-	myPara.innerText = data;
-}
+// function populateDOM(data){
+// 	myDiv.innerHTML +=`<p>${data}</p>`;
+// 	myPara.innerText = data;
+// }
 
-function counter(){
-	setTimeout(()=>{
-		console.log("First");
-		setTimeout(()=>{
-			console.log("Second");
-			setTimeout(()=>{
-				console.log("Third");
-				setTimeout(()=>{
-					console.log("Fourth");
-				},400);
-			},600);
-		},800);
-	},1000);
-}
+// function counter(){
+// 	setTimeout(()=>{
+// 		console.log("First");
+// 		setTimeout(()=>{
+// 			console.log("Second");
+// 			setTimeout(()=>{
+// 				console.log("Third");
+// 				setTimeout(()=>{
+// 					console.log("Fourth");
+// 				},400);
+// 			},600);
+// 		},800);
+// 	},1000);
+// }
 
-counter();
+// counter();
 
 //---------------
 
@@ -196,3 +211,71 @@ function crunchNumbers(a,b,cb1,cb2,cb3){
 }
 
 crunchNumbers(5,10,numCruncher1,numCruncher2,totalSum);
+
+
+
+//---------------------------------------
+//Aula 02 Lecture: Promisses
+//---------------------------------------
+
+/*
+	-Promise é um objeto usado para processamento assíncrono.
+		Um Promise (de "promessa") representa um valor que pode estar disponível agora, 
+		no futuro ou nunca.
+	-Um Promise está em um destes estados: 
+		pending (pendente): Estado inicial, que não foi realizada nem rejeitada.
+		fulfilled (realizada): sucesso na operação.
+		rejected (rejeitado):  falha na operação.
+
+	- Can associate a handler with an async action
+	
+*/
+
+
+const testPromise = new Promise((resolve, reject)=>{
+		if(Math.random() >0.5){
+			reject("Promise no good! rejected");
+		}
+		setTimeout(()=>{
+			resolve("Promise Ok");
+		},1000);
+});
+
+testPromise.then((resolveMessage)=>{
+	console.log(`Look Likes :${resolveMessage}`);
+}).then(()=>{
+	console.log("I should run after the Promise is resolved");
+}).then(()=>{
+	console.log("Promises are awesome");
+}).catch((rejectMessage)=>{
+	console.log(`Error : ${rejectMessage}`);
+});
+
+
+function numAdder(n1,n2){
+
+	return new Promise((resolve,reject)=>{
+		 const addedNums = n1+n2;
+		 setTimeout(()=>{
+		 	resolve(addedNums);
+		 },500);
+	});
+}
+
+function numSquarer(num){
+	return new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve(num*num);
+		},800);
+	});
+}
+
+
+numAdder(100,23).then((data)=> console.log(`Added total : ${data}`));
+numAdder(10,10)
+.then((data)=>{
+	return numSquarer(data);
+})
+.then((moredata)=> {
+	console.log(moredata)
+});
