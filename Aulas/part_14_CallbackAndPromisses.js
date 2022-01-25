@@ -391,3 +391,12 @@ timeLogger("first",1000)
 	}).then(message =>{
 		console.log(message);
 	}).catch(err=> console.log("Incorrect input"));
+
+//-----------------35:00---------------------------------
+
+
+Promise.resolve("Hi")
+	.then(string => {
+		//Effectively same as saying return Promise.resolve(...)
+		return string + "there";
+	})
