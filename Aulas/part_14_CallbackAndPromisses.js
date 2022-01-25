@@ -450,4 +450,70 @@ Promise.resolve("Hi 4")
 	})
 	.then(string =>{
 		console.log(string);
+});
+
+//---------------42:35-------------------
+
+//const p1 = Promise.resolve("A");
+
+const p1 = new Promise((resolve,reject)=>{
+	setTimeout(()=>{
+		resolve("A");
+	},2000)
 })
+const p2 = Promise.resolve("B");
+
+const p3 = Promise.resolve("C");
+
+Promise.all([p1,p2,p3])
+	.then(data => console.log(data)) // ["A" ,"B","C"]
+	.catch(err => console.log(err));
+
+
+//---------------------------------------
+
+
+const userName= new Promise((resolve,reject)=>{
+	setTimeout(()=>{
+		resolve({text:"Janderson Shady"});
+	},1000)
+});
+
+const userName2 = new Promise((resolve,reject)=>{
+	setTimeout(()=>{
+		reject({text:"Erro Janderson Shady"});
+	},1000)
+});
+
+
+const position = new Promise((resolve,reject)=>{
+	setTimeout(()=>{
+		resolve({text:"Programador"})
+	},300);
+});
+
+const employees ={
+
+}
+
+
+Promise.all([userName,position])
+	.then(data => console.log(data)) 
+	.catch(err => console.log(err));
+
+
+
+Promise.all([userName,position])
+	.then(data => data.map(entry => entry.text)) 
+	.then(content => employees[0]= content)
+	.catch(err => console.log(err));
+
+console.log(employees);
+
+
+//-------------48:50--------------------
+
+//Imprime o que tiver menos tempo de timeout no caso position que tem 300
+Promise.race([userName2,userName,position])
+	.then(data => console.log(data.text))
+	.catch(err => console(err.text))
