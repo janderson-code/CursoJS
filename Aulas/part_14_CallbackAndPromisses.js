@@ -264,6 +264,9 @@ function numAdder(n1,n2){
 
 function numSquarer(num){
 	return new Promise((resolve,reject)=>{
+		if(Math.random() > 0.5){
+			reject("Nope");
+		}
 		setTimeout(()=>{
 			resolve(num*num);
 		},800);
@@ -272,12 +275,12 @@ function numSquarer(num){
 
 
 numAdder(100,23).then((data)=> console.log(`Added total : ${data}`));
-numAdder(10,10)
-.then((data)=>{
-	return numSquarer(data);
-})
-.then((moredata)=> {
-	console.log(moredata)
-});
 
-//------16:18------------
+numAdder(10,10)
+	.then((data)=> numSquarer(data))
+	//.then((data)=>{return numSquarer(data);})
+	.then((moredata)=> console.log(moredata))
+	//.then((moredata)=>{console.log(moredata)});
+	.catch(err => console.log(err));
+
+
