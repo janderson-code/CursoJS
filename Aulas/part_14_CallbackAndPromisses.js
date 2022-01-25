@@ -256,6 +256,7 @@ function numAdder(n1,n2){
 
 	return new Promise((resolve,reject)=>{
 		 const addedNums = n1+n2;
+		 //reject("not today"); não passa do reject
 		 setTimeout(()=>{
 		 	resolve(addedNums);
 		 },500);
@@ -284,3 +285,75 @@ numAdder(10,10)
 	.catch(err => console.log(err));
 
 
+//----------18:45---------------------//
+
+Promise.resolve("a string")
+	.then((data)=> console.log(data));
+
+
+function alwaysResolves(){
+	return Promise.resolve("I love resolving :D");
+}
+
+alwaysResolves().then(data=> console.log(data));
+
+const prom = Promise.resolve([10,20,30]);
+prom
+	.then(nums => nums.map(num => num * 10))
+	.then(transformedNums => console.log(transformedNums));
+
+
+const anotherProm = Promise.resolve({text:"resolved:D"});
+
+anotherProm.then(data => console.log(data.text))
+
+
+
+//-------------23:00--------------------//
+
+Promise.reject()
+	.then(()=> console.log("ok"))
+	.catch(()=> console.log("caught reject promise"))
+
+
+Promise.reject()
+	.then(
+		res =>{
+			console.log("not reject");
+		},
+		err =>{
+			console.log("rejected"); // printa aqui
+		}
+	).cath(data=> console.log(data));
+
+
+
+	Promise.resolve()
+	.then(
+		res =>{
+			return Promise.reject("rejected inner promise");// printa aqui
+		},
+		err =>{
+			console.log("rejected"); 
+		}
+	).cath(data=> console.log(data));
+
+
+
+
+Promise.resolve()
+	.then(
+		res =>{
+			return Promise.reject();// printa aqui
+		},
+		err =>{
+			console.log("rejected"); 
+		}
+	).then(
+		res =>{
+			console.log("cool");
+		},
+		err =>{
+			console.log("Inner promise rejected"); // printa aqui
+		}
+	).cath(data=> console.log(data));
