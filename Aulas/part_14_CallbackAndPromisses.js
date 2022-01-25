@@ -324,7 +324,7 @@ Promise.reject()
 		err =>{
 			console.log("rejected"); // printa aqui
 		}
-	).cath(data=> console.log(data));
+	).catch(data => console.log(data));
 
 
 
@@ -336,9 +336,9 @@ Promise.reject()
 		err =>{
 			console.log("rejected"); 
 		}
-	).cath(data=> console.log(data));
+	).catch(data => console.log(data));
 
-
+//--------------------------------------------------
 
 
 Promise.resolve()
@@ -356,4 +356,38 @@ Promise.resolve()
 		err =>{
 			console.log("Inner promise rejected"); // printa aqui
 		}
-	).cath(data=> console.log(data));
+	).catch(data=> console.log(data));
+
+
+//--------------------29:00-------------------------//
+
+function timeLogger(message,time){
+	return new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve(message);
+		},time);
+		if(typeof message !== "string"|| typeof time !== "number"){
+			reject();
+		}
+	});
+}
+
+
+timeLogger("first",1000)
+	.then(message => console.log(message))
+	.catch(err=> console.log(err));
+
+
+timeLogger("first",1000)
+	.then(message => {
+		console.log(message)
+		return timeLogger("second",800);
+	}).then(message =>{
+		console.log(message);
+		return timeLogger("third",100);
+	}).then(message =>{
+		console.log(message);
+		return timeLogger("fourth",300);
+	}).then(message =>{
+		console.log(message);
+	}).catch(err=> console.log("Incorrect input"));
