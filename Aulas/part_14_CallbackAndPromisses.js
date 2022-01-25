@@ -395,8 +395,59 @@ timeLogger("first",1000)
 //-----------------35:00---------------------------------
 
 
-Promise.resolve("Hi")
+Promise.resolve("Hi 1")
 	.then(string => {
 		//Effectively same as saying return Promise.resolve(...)
-		return string + "there";
+		return string + " there";
+	}).then(string =>{
+		console.log(string);
 	})
+
+
+Promise.resolve("Hi 2")
+	.then(string => {
+		//Effectively same as saying return Promise.resolve(...)
+			return Promise.resolve(string + " there");
+		}).then(string =>{
+		console.log(string);
+	})
+
+
+Promise.resolve("Hi 3")
+	.then(string => {
+		//Effectively same as saying return Promise.resolve(...)
+		  return new Promise((resolve,reject)=>{
+		  		  setTimeout(()=>{
+		  	resolve(string+ " there");
+		  },1);
+		 });
+	}).then(string=>{
+			setTimeout(()=>{
+				string += "Chris"
+			},1);
+			return string;
+	})
+	.then(string =>{
+		console.log(string);
+})
+
+
+
+Promise.resolve("Hi 4")
+	.then(string => {
+		//Effectively same as saying return Promise.resolve(...)
+		  return new Promise((resolve,reject)=>{
+		  		  setTimeout(()=>{
+		  	resolve(string + " there");
+		  },1);
+		 });
+	}).then(string=>{
+		  return new Promise((resolve,reject)=>{
+		  	setTimeout(()=>{
+		  		resolve(string + "Chris");
+		  	},1);
+		  });
+	})
+	.then(string =>{
+		console.log(string);
+})
