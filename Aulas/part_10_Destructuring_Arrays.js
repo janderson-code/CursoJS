@@ -316,11 +316,11 @@ for (const{name,address} of entries) {
 }
 
 for (const{name:n,address:a} of entries) {
-	console.log(`Name:${n}, address:${a} `);
+	console.log(`Name1:${n}, address:${a} `);
 }
 
 for (const{name,address,other:{cell}} of entries) {
-	console.log(`Name:${name}, address:${address},cell:${cell}`);
+	console.log(`Name2:${name}, address:${address},cell:${cell}`);
 }
 
 
