@@ -60,3 +60,4 @@ console.log(bobId);
 console.log(objectBuilder(10,"Bob",false,10));
 
 
+//Lecture: Computed Property Keys
