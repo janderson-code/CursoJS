@@ -12,3 +12,5 @@
    -- Can  easily get the size of Map 
 */
 
+
+const myMap = new Map();
