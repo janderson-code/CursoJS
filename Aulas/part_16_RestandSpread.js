@@ -147,7 +147,7 @@ myES6Obj.sayBye();
 
 const anotherObj = {
 	greet(arg1){
-		console.log(`Hey ${arg1}!`);
+		console.log(`Hey ${arg1}!`); // Hey Tim
 	},
 	anotherMethod(...args){
 		this.greet(args[0]);

@@ -164,4 +164,5 @@ const anotherSet3 = new Set(myArr111);
 console.log(anotherSet);
 console.log(anotherSet2);
 console.log(anotherSet3);// Não printa nem seta valor duplicado
-console.log(anotherSet3.has(41));
+console.log(anotherSet3.has(41));//false
+

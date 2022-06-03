@@ -547,9 +547,9 @@ console.log(stringSplitter());
 
 
 const bankAccount = {
-    canSpendMoney = true,
-    hasCreditCard = true,
-    balance = 100
+    canSpendMoney: true,
+    hasCreditCard: true,
+    balance: 100
 }
 
 function canPurchaseItem(price, acct = bankAccount) {
