@@ -70,3 +70,17 @@ function mapUserNames(myArr) {
 }
 
 var MapUserName = (myArr)=> myArr.map((user)=> user.name);
+
+
+const myTagP = document.GetElementsByTagName("p");
+
+for(const prop of myTagP){
+    prop.innerHtml = "Renomeado";
+}
+
+const myDiv = document.querySelector(".div");
+
+myDiv.style.color = "green";
+myDiv.style.cursor = "pointer";
+
+const myDiv2 = document.querySelectorAll(".div spam");
