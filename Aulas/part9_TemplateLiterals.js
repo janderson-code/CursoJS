@@ -66,7 +66,7 @@ console.log(`Hello ${first} ${last}. You are ${age} Today`);
 
 const dateNow = new Date();
 
-console.log(`Today is :${dateNow.toLocaleString(}`);
+console.log(`Today is :${dateNow.toLocaleString()}`);
 
 console.log(`Result is: ${50*100}`);
 
