@@ -1,89 +1,23 @@
-var nomes1 = ["Janderson", "Pedro", "Naruto"];
-var numbers = [1, 1000, 2, 0];
-numbers.sort();
-var nomesJoin = nomes1.join("-");
-console.log(numbers);
 
-function Donut(tipo, sabor, temChocolate) {
-    this.tipo = tipo;
-    this.sabor = sabor;
-    this.temChocolate = false;
-    this,kjsjsjsjsj = true
+const myArray = [1,2,3];
+[a,b,c] = myArray;
+
+console.log(a,b,c);
+
+const myArray2 = ["Jotta","goku","Vegeta"];
+[name1,name2,name3 ="Gohan"] = myArray2;
+console.log(name1,name2,name3);
+
+function returnArray(){
+    return ["janderson","naiara","camila","natalia","larissa"];
 }
 
-
-
-var chocolate = new Donut("Pequeno", "cholate", true);
-
-console.log(chocolate);
-
-function sayHi(){
-    let x1 = true;
-    let x2 =true
-   
-    if(x1 ==true){
-        let myname  = "janderson";
-        console.log(myname);
-    }
-    else{
-        let myname = "x";
-        console.log(myname);
-    }
-    console.log(x1);
-
-
+function nameFilmter(arr,term){
+    return arr.filter((t)=> t== term);
 }
 
-sayHi();
+const [janderson,naiara,camila,natalia,larissa] = returnArray();
+console.log(janderson);
 
-function sayName(firstName,LastName){
-    console.log(`ola ${firstName} ${LastName}`)
-}
-
-sayName("Janderson","Barbosa");
-
-
-var sayHi2 = () => console.log("sayhi2");
-
-const users = [
-    {name:"Janderson",age:20},
-    {name:"Naiara",age:25},
-    {name:"Pelé",age:80}
-
-];
-
-function mapUserNames(myArr) {
-    
-    const userNameList = myArr.map(function(user){
-        return user.name;
-    });
-
-    return userNameList;
-}
-
-function mapUserNames(myArr) {
-    const userNameList = myArr.map((user)=>{
-        return user.name;
-    });
-
-    return userNameList;
-}
-
-var MapUserName = (myArr)=> myArr.map((user)=> user.name);
-
-
-const myTagP = document.GetElementsByTagName("p");
-
-for(const prop of myTagP){
-    prop.innerHtml = "Renomeado";
-}
-
-const myDiv = document.querySelector(".div");
-
-myDiv.style.color = "green";
-myDiv.style.cursor = "pointer";
-
-const myDiv2 = document.querySelectorAll(".div spam");
-
-const newElement = document.createElement("ul");
-myDiv2.appendChild(newElement);
+const [result] = nameFilmter(["janderson","Larissa"],"Larissa");
+console.log(result);
