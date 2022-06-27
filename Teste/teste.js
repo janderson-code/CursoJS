@@ -84,3 +84,6 @@ myDiv.style.color = "green";
 myDiv.style.cursor = "pointer";
 
 const myDiv2 = document.querySelectorAll(".div spam");
+
+const newElement = document.createElement("ul");
+myDiv2.appendChild(newElement);
