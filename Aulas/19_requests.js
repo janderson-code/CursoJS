@@ -1,4 +1,12 @@
 // 01
+/*
+
+A Propriedade onload
+Com o objeto, você pode definir uma função de retorno de chamada a ser executada quando a solicitação receber uma resposta.XMLHttpRequest
+
+A função é definida na propriedade do objeto:onloadXMLHttpRequest
+
+*/
 
 xhttp.onload = function() {
     document.getElementById("demo").innerHTML = this.responseText;
@@ -7,6 +15,7 @@ xhttp.onload = function() {
   xhttp.send();
 
 
+  
 // 02
 
 loadDoc("url-1", myFunction1);
@@ -29,6 +38,18 @@ function myFunction2(xhttp) {
 
 
 //03
+/*
+
+A propriedade onreadystatechange
+
+A propriedade detém o status do XMLHttpRequest.readyState
+
+A propriedade define uma função de retorno de chamada a ser executada quando o Estado pronto mudar.onreadystatechange
+
+A propriedade e as propriedades possuem o status do objeto XMLHttpRequest.statusstatusText
+
+
+*/
 function loadDoc() {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
